@@ -13,9 +13,17 @@ export class AuthService {
 
   async sendEmail():Promise<void>{}
   async register():Promise<User>{}
-  async login():Promise<User>{}
+  async login(email:string, password:string):Promise<User>{
+    try {
+      const { user } = await this.firebaseAuthentication.signInWithEmailAndPassword(email, password);
+      return user;
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-  
+
+
   async logout(): Promise<void>{
 
     try {
