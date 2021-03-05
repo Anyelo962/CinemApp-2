@@ -1,5 +1,5 @@
+import { User } from './../interfaces/user';
 import { Injectable } from '@angular/core';
-import { FirebaseService } from 'firebase'
 import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
 
 @Injectable({
@@ -7,8 +7,23 @@ import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ng
 })
 export class AuthService {
 
-  constructor(private firebaseService:FirebaseService) { }
+  constructor(private firebaseAuthentication: FirebaseAuthentication, private name:String, private email:String, private password:String) { }
+
+
+
+  async sendEmail():Promise<void>{}
+  async register():Promise<User>{}
+  async login():Promise<User>{}
 
   
+  async logout(): Promise<void>{
+
+    try {
+      await this.firebaseAuthentication.signOut();
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
    
 }
