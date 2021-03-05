@@ -11,8 +11,35 @@ export class AuthService {
 
 
 
-  async sendEmail():Promise<void>{}
-  async register():Promise<User>{}
+  // async sendEmail():Promise<void>{
+
+  //   try {
+  //     return (await this.firebaseAuthentication.onAuthStateChanged).sendEmailVerification();
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+  // async loginWithGoogle():Promise<User>{
+  //   try {
+  //     const {user} = await this.firebaseAuthentication.signInWithGoogle(new auth.GoogleAuthProvider())
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+
+  async register(email:string, password:string):Promise<User>{
+      try {
+        const {user} = await this.firebaseAuthentication.createUserWithEmailAndPassword(email, password);
+       // await this.sendEmail();
+        return user;
+      } catch (error) {
+        console.log(error)
+      }
+  }
+
+
+
   async login(email:string, password:string):Promise<User>{
     try {
       const { user } = await this.firebaseAuthentication.signInWithEmailAndPassword(email, password);
