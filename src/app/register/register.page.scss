@@ -1,0 +1,36 @@
+ion-content {
+    --background: #fff; 
+  }
+ 
+  .logo-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30%;
+  }
+
+  .text-cine{
+    color: red;
+    text-align:center;
+    justify-content: center;
+    display: flex;
+    font-size:190%;
+    font-family: sans-serif;
+ }
+ .text-color{
+    color: #000;
+
+    
+ }
+ 
+ .btn-estilo{
+    --background:transparent;
+    color:red;
+    border-color: white;
+ }
+ .footer-estilo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+ } 
